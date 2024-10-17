@@ -1,0 +1,56 @@
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+--
+-- Host: localhost    Database: mg_palestine_branch
+-- ------------------------------------------------------
+-- Server version	8.0.36
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `installmentpayments`
+--
+
+DROP TABLE IF EXISTS `installmentpayments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `installmentpayments` (
+  `saleID` int NOT NULL,
+  `processNumber` int NOT NULL,
+  `totalCost` double DEFAULT NULL,
+  `firstPayment` double DEFAULT NULL,
+  `monthlyInstallment` double DEFAULT NULL,
+  `NumberOfMonths` int NOT NULL,
+  PRIMARY KEY (`saleID`,`processNumber`),
+  CONSTRAINT `installmentpayments_ibfk_1` FOREIGN KEY (`saleID`) REFERENCES `sales` (`saleID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `installmentpayments`
+--
+
+LOCK TABLES `installmentpayments` WRITE;
+/*!40000 ALTER TABLE `installmentpayments` DISABLE KEYS */;
+INSERT INTO `installmentpayments` VALUES (11,2011,14000.654,6000.654,1400.654,10),(12,2012,14400.987,6400.987,1440.987,10),(13,2013,14800.123,6800.123,1480.123,10),(14,2014,15200.456,7200.456,1520.456,10),(15,2015,15600.789,7600.789,1560.789,10),(16,2016,16000.321,8000.321,1600.321,10),(17,2017,16400.654,8400.654,1640.654,10),(18,2018,16800.987,8800.987,1680.987,10),(19,2019,17200.123,9200.123,1720.123,10),(20,2020,17600.456,9600.456,1760.456,10);
+/*!40000 ALTER TABLE `installmentpayments` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-09 19:41:48
